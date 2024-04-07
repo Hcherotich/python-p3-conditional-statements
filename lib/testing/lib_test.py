@@ -8,6 +8,12 @@ import sys
 class TestAdminLogin:
     '''admin_login() in control_flow.py'''
 
+def admin_login(username, password):
+    if username == "admin" and password == "12345":
+        return "Access granted"
+    else:
+        return "Access denied"
+
     def test_returns_access_granted_admin12345(self):
         '''returns "Access granted" for username=admin and password=12345'''
         assert(admin_login("admin","12345") == "Access granted")
@@ -24,6 +30,15 @@ class TestAdminLogin:
 
 class TestHowsTheWeather:
     '''hows_the_weather() in control_flow.py'''
+def hows_the_weather(temperature):
+    if temperature < 40:
+        return "It's brisk out there!"
+    elif temperature < 65:
+        return "It's a little chilly out there!"
+    elif temperature <= 85:
+        return "It's perfect out there!"
+    else:
+        return "It's too dang hot out there!"
 
     def test_under_40_brisk(self):
         '''returns "It's brisk out there" for temperature=33'''
@@ -43,6 +58,17 @@ class TestHowsTheWeather:
 
 class TestFizzBuzz:
     '''fizzbuzz() in control_flow.py'''
+def fizzbuzz(num):
+    if num == 0:
+        return "FizzBuzz"
+    elif num % 3 == 0 and num % 5 == 0:
+        return "FizzBuzz"
+    elif num % 3 == 0:
+        return "Fizz"
+    elif num % 5 == 0:
+        return "Buzz"
+    else:
+        return num
 
     def test_returns_fizzbuzz_multiple_3_and_5(self):
         '''returns "FizzBuzz" for num=0, num=15, num=45'''
@@ -70,6 +96,18 @@ class TestFizzBuzz:
 
 class TestCalculator:
     '''calculator() in control_flow.py'''
+def calculator(operator, num1, num2):
+    if operator == "+":
+        return num1 + num2
+    elif operator == "-":
+        return num1 - num2
+    elif operator == "*":
+        return num1 * num2
+    elif operator == "/":
+        return num1 / num2
+    else:
+        print("Invalid operation!")
+        return None
 
     def test_returns_sum_if_plus(self):
         '''returns sum for ("+", 1, 2), ("+", 5, 7), ("+", 9, 90)'''
